@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="" data-bs-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+  <meta name="author" content="Tim">
+  <meta name="keywords" content="nothing, nothingness">
+  <title>Pyxel Tutorials</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root, [data-bs-theme=light] {
+      --templatecolor: #7696de;
+      --bs-heading-color: var(--templatecolor);
+    }
+
+    [data-bs-theme=dark] {
+      --bs-heading-color: var(--bs-gray-100);
+    }
+  </style>
+  <link href="template/css/dark_mode.css" rel="stylesheet">
+  <link href="template/css/template.css" rel="stylesheet">
+  <link href="template/css/pygments/friendly.css" rel="stylesheet">
+  <link href="template/css/pygments/github-dark.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+
+</head>
+  <body>
+
+    <header class="navbar navbar-expand-lg bd-navbar sticky-top" id="header" >
+      <nav id="navbar" class="container-xxl flex-wrap flex-lg-nowrap text-white" aria-label="header">
+
+        <div class="bd-navbar-toggle">
+          <button class="navbar-toggler p-2 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#TOCsidebarMenu" aria-controls="toc" aria-label="Toggle docs navigation">
+            <i class="fa-solid fa-circle-chevron-right"></i>
+          </button>
+        </div>
+
+        <div>
+                      <span class="fs-4 d-none d-md-inline">Pyxel Tutorials</span>
+            <span class="fs-4 d-md-none d-xs-inline">Pyxel Tutorials</span>
+                          <span class="subtitle d-none d-lg-inline"> - Installation</span>
+                              </div>
+
+        <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-label="Toggle navigation">
+          <i class="fa-solid fa-ellipsis text-white"></i>
+        </button>
+
+        <!-- RIGHT OFFCANVAS -->
+        <div class="offcanvas offcanvas-end flex-grow-1" tabindex="-1" id="offcanvasRight" aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true" aria-modal="true" role="dialog">
+          <div class="offcanvas-header px-4 pb-0">
+            <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">Pyxel Tutorials</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
+          </div>
+
+          <div class="offcanvas-body p-4 pt-0 p-lg-0">
+            <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+              <ul class="navbar-nav flex-row d-flex align-items-center flex-wrap text-white">
+                <li class="d-lg-none me-2 text-white navbar-nav flex-row d-flex align-items-center flex-wrap"></li>
+                <li class="navbar-nav flex-row d-flex align-items-center flex-wrap text-white">
+                  <a id="pdf-link" href="" class=" btn flex-row d-flex align-items-center flex-wrap text-white download-icon">
+                    <i class="fa-solid fa-cloud-arrow-down"></i>
+                  </a>
+                </li>
+              </ul>
+
+
+              <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                <hr class="d-lg-none my-2 text-white-50">
+              </li>
+
+              <!-- Theme Selector -->
+              <ul class="navbar-nav flex-row d-flex align-items-center flex-wrap text-white" id="theme-selector">
+                <div class="d-lg-none me-2 text-white navbar-nav flex-row d-flex align-items-center flex-wrap"></div>
+                <li class="nav-item dropdown">
+                  <button class="btn btn-link nav-link text-white dropdown-toggle d-flex align-items-center theme-icon-active" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" href="fa-moon">
+                    <i class="fa-solid fa-moon"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme" style="--bs-dropdown-min-width: 8rem;" id="theme-selector-menu">
+                    <li href="fa-sun" data-bs-theme-value="light">
+                      <button type="button" class="dropdown-item d-flex align-items-center">
+                        <i class="fa-solid fa-sun opacity-50 theme-icon"></i>
+                        Light
+                      </button>
+                    </li>
+                    <li href="fa-moon" data-bs-theme-value="dark">
+                      <button type="button" class="dropdown-item d-flex align-items-center">
+                        <i class="fa-solid fa-moon opacity-50 theme-icon"></i>
+                        Dark
+                      </button>
+                    </li>
+                    <li href="fa-circle-half-stroke" data-bs-theme-value="auto">
+                      <button type="button" class="dropdown-item d-flex align-items-center">
+                        <i class="fa-solid fa-circle-half-stroke opacity-50 theme-icon"></i>
+                        Auto
+                      </button>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+
+              <li class="d-lg-none nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                <hr class="d-lg-none my-2 text-white-50">
+              </li>
+
+              <!-- Author and links -->
+              <ul class="d-lg-none navbar-nav flex-row d-flex align-items-center flex-wrap text-white">
+                <li class="d-lg-none me-2 text-white navbar-nav flex-row d-flex align-items-center flex-wrap">12-09-2025, Tim</li>
+                <ul class="nav justify-content-end list-unstyled d-flex">
+                                      <li class="ms-3"><a class="text-white" href="https://github.com"><i class="fa-brands fa-github"></i></a></li>
+                                  </ul>
+              </ul>
+
+              <li class="d-lg-none nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                <hr class="d-lg-none my-2 text-white-50">
+              </li>
+
+              <ul class="navbar-nav flex-row d-flex align-items-center flex-wrap text-white">
+                <li class="d-lg-none me-2 text-white navbar-nav flex-row d-flex align-items-center flex-wrap">
+                  <a  href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0</a>
+                </li>
+              </ul>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+                  <div class="col-lg-3">
+            <aside class="sticky-lg-top offcanvas-lg offcanvas-start offcanvas-body" tabindex="-1" id="TOCsidebarMenu" aria-labelledby="bdsidebaroffcanvaslabel">
+              <div class="offcanvas-lg offcanvas-start show" tabindex="-1" id="bdsidebar" aria-labelledby="bdsidebaroffcanvaslabel" aria-modal="true" role="dialog">
+
+                <div class="offcanvas-header border-bottom d-lg-none">
+                  <h5 class="offcanvas-title" id="bdsidebaroffcanvaslabel"></h5>
+                  <button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" aria-label="close" data-bs-target="#TOCsidebarMenu"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <nav class="" id="bd-docs-nav" aria-label="docs navigation">
+                    <div id="toc" class="pb-5">
+                      <ul>
+                      <li><a href="#installation" id="toc-installation"><span class="toc-section-number">1</span> Installation</a>
+                      <ul>
+                      <li><a href="#windows" id="toc-windows"><span class="toc-section-number">1.1</span> Windows</a>
+                      <ul>
+                      <li><a href="#python" id="toc-python"><span class="toc-section-number">1.1.1</span> Python</a></li>
+                      <li><a href="#set-windows-execution-policy" id="toc-set-windows-execution-policy"><span class="toc-section-number">1.1.2</span> Set Windows Execution Policy</a></li>
+                      <li><a href="#install-vscode" id="toc-install-vscode"><span class="toc-section-number">1.1.3</span> Install VSCode</a></li>
+                      <li><a href="#install-pyxel" id="toc-install-pyxel"><span class="toc-section-number">1.1.4</span> Install Pyxel</a></li>
+                      <li><a href="#well-done" id="toc-well-done"><span class="toc-section-number">1.1.5</span> Well Done!</a></li>
+                      </ul></li>
+                      <li><a href="#linux-install" id="toc-linux-install"><span class="toc-section-number">1.2</span> Linux Install</a>
+                      <ul>
+                      <li><a href="#install-python" id="toc-install-python"><span class="toc-section-number">1.2.1</span> Install Python</a></li>
+                      <li><a href="#install-pyxel-1" id="toc-install-pyxel-1"><span class="toc-section-number">1.2.2</span> Install Pyxel</a></li>
+                      <li><a href="#install-visual-studio-code" id="toc-install-visual-studio-code"><span class="toc-section-number">1.2.3</span> Install Visual Studio Code</a></li>
+                      <li><a href="#well-done-1" id="toc-well-done-1"><span class="toc-section-number">1.2.4</span> Well Done!</a></li>
+                      </ul></li>
+                      <li><a href="#uninstall" id="toc-uninstall"><span class="toc-section-number">1.3</span> Uninstall</a></li>
+                      </ul></li>
+                      </ul>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+            </aside>
+          </div>
+                <div class="col-12 col-lg-8">
+          <main class="bd-main order-1" id="main"  data-bs-spy="scroll" data-bs-target="#toc">
+            <div id="book">
+
+                              <div id="cover" class="fw-bold text-center">
+                  <span id="title" >Pyxel Tutorials</span>
+                  <div id="cover_img" class="py-5">
+                    <img src="assets/pyxel_logo.png">
+                  </div>
+                </div>
+              
+<section id="installation" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Installation</h1>
+<section id="windows" class="level2" data-number="1.1">
+<h2 data-number="1.1"><span class="header-section-number">1.1</span> Windows</h2>
+<section id="python" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1"><span class="header-section-number">1.1.1</span> Python</h3>
+<p>First we need to install Python, if you don’t have that installed already.</p>
+<p>Go to the Microsoft Store and search for <span class="inlineconsole">Python</span>. Press the install button to install and follow any on screen instructions.</p>
+<p>Open Powershell, try pressing the windows key then typing <span class="inlineconsole">powershell</span> it should come up.</p>
+<div class="infobox">
+<p>Top Tip - Install Windows Terminal from the Microsoft Store for a better terminal experience.</p>
+</div>
+<p>Verify you have Python installed by typing</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="p">-</span><span class="n">-version</span>
+</pre></div>
+</div>
+</div>
+<p>and enter. You should see <span class="verbatim">Python</span> followed by the version number, for example:</p>
+<div class="mycode">
+<div class="sourceCode"><div class="highlight"><pre><span></span>Python 3.12.0
+</pre></div>
+</div>
+</div>
+<p>If not, try the install steps again.</p>
+<p>Next check PIP (the Python Package Installer) was installed with Python. Enter the command</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="p">-</span><span class="n">-version</span>
+</pre></div>
+</div>
+</div>
+<p>You should see <span class="verbatim">pip</span> followed by the version number and the install location, something like this:</p>
+<div class="mycode">
+<div class="sourceCode"><div class="highlight"><pre><span></span>pip 24.3.1 from C:\Users......
+</pre></div>
+</div>
+</div>
+<p>If not, enter the following to bootstrap the pip that was installed with Python:</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">ensurepip</span> <span class="p">-</span><span class="n">-default-pip</span>
+</pre></div>
+</div>
+</div>
+<p>and check it worked by trying <span class="verbatim">pip –version</span> again.</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="p">-</span><span class="n">-version</span>
+</pre></div>
+</div>
+</div>
+<div class="warnbox">
+<p>If either <span class="inlineconsole">Python</span> or <span class="inlineconsole">pip</span> didn’t install you cannot go further. <strong>Seek help to complete the installs.</strong></p>
+</div>
+</section>
+<section id="set-windows-execution-policy" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2"><span class="header-section-number">1.1.2</span> Set Windows Execution Policy</h3>
+<div class="infobox">
+<p>You can skip this step if you already have the Execution Policy set.</p>
+</div>
+<p>Close <span class="inlineconsole">Powershell</span>. We are going to open <span class="inlineconsole">Powershell</span> again, but this time as an administrator.</p>
+<div class="warnbox">
+<p>If you don’t have administrator access on the system you are using, contact the person who has administrator access for this step.</p>
+</div>
+<p>Press the Windows key and type <span class="inlineconsole">powershell</span>, the option to open as administrator will show if you have access. Click this and click ‘Yes’ to the warning that pops up.</p>
+<p>To avoid having to do this everytime you want to code, I suggest entering the following command to set the execution policy to remote signed for the current user.</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="nb">Set-ExecutionPolicy</span> <span class="n">-ExecutionPolicy</span> <span class="n">RemoteSigned</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+</pre></div>
+</div>
+</div>
+<p>Close <span class="inlineconsole">Powershell</span> again and continue below to install <span class="inlineconsole">VSCode</span>.</p>
+<div class="infobox">
+<p>Full details of setting execution policies can be found <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.5&amp;viewFallbackFrom=powershell-7.1#parameters">here</a>.</p>
+</div>
+</section>
+<section id="install-vscode" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3"><span class="header-section-number">1.1.3</span> Install VSCode</h3>
+<p>We will use VSCode in this tutorial to simplify cross Operating System instructions.</p>
+<p>Either go to the Microsoft Store, search for <span class="inlineconsole">vscode</span> and install,</p>
+<p>or go to</p>
+<p><a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></p>
+<p>and download the <span class="inlineconsole">VSCode</span> installer for your system.</p>
+<p>Find the download and run the installer, follow the on screen instructions.</p>
+</section>
+<section id="install-pyxel" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4"><span class="header-section-number">1.1.4</span> Install Pyxel</h3>
+<p>Open <span class="inlineconsole">Powershell</span> again as normal (not as an administrator), we will make a new directory for our Pyxel projects. I will use a <span class="configdir">Projects</span> and a <span class="configdir">pyxel</span> directory here, you can choose what you want but a <span class="configdir">pyxel</span> directory is useful.</p>
+<div class="infobox">
+<p>Where you place the directory is up to you. A good place in Windows would be<br />
+<code>C:\Users\**your_username**\</code></p>
+</div>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">Projects</span>
+<span class="nb">cd </span><span class="n">Projects</span>
+<span class="n">mkdir</span> <span class="n">pyxel</span>
+<span class="nb">cd </span><span class="n">pyxel</span>
+</pre></div>
+</div>
+</div>
+<p>Now we will create a Python <span class="inlineconsole">virtual environment</span> to run all our pyxel code in, this is good practice as it will keep everything separate from the usual system stuff. Our virtual environment will be called <span class="inlineconsole">venv</span>.</p>
+<div class="infobox">
+<p>A Python <span class="inlineconsole">virtual environment</span> separates PIP packages from system packages, this is a safer way to run Python code as the PIP packages cannot change any system packages that may already be installed.</p>
+</div>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="n">venv</span>
+</pre></div>
+</div>
+</div>
+<p>And then activate the virtual environment</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="n">venv</span><span class="p">/</span><span class="n">Scripts</span><span class="p">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+</div>
+<p>You should now have <span class="inlineconsole">(venv) PS C:\……..&gt;</span> showing in the command line.</p>
+<p>Now enter</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="nb">echo </span><span class="s1">&#39;pyxel&#39;</span> <span class="p">&gt;</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+<p>this creates a text file called <span class="configfile">requirements.txt</span> with the word <span class="verbatim">pyxel</span> in it.</p>
+<p>Next we use <span class="verbatim">pip install</span> to install the PIP pyxel package from <span class="configfile">requirements.txt</span>. Enter</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</div>
+<p>You will hopefully see the install notices on screen and pyxel being installed.</p>
+<div class="warnbox">
+<p>Note, pyxel will only work inside the virtual environment <span class="verbatim">venv</span> we have created, we will have to start the virtual environment each time we come back.</p>
+</div>
+<p>Validate pyxel has installed by entering:</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="n">pyxel</span>
+</pre></div>
+</div>
+</div>
+<p>You should see a helpful list of commands like this</p>
+<div class="mycode">
+<div class="sourceCode"><div class="highlight"><pre><span></span>Pyxel 2.3.1, a retro game engine for Python
+usage:
+    pyxel run PYTHON_SCRIPT_FILE(.py)
+    pyxel watch WATCH_DIR PYTHON_SCRIPT_FILE(.py)
+    pyxel play PYXEL_APP_FILE(.pyxapp)
+    pyxel edit [PYXEL_RESOURCE_FILE(.pyxres)]
+    pyxel package APP_DIR STARTUP_SCRIPT_FILE(.py)
+    pyxel app2exe PYXEL_APP_FILE(.pyxapp)
+    pyxel app2html PYXEL_APP_FILE(.pyxapp)
+    pyxel copy_examples
+</pre></div>
+</div>
+</div>
+<p>Now we can open VSCode in the current directory with</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="p">.</span>
+</pre></div>
+</div>
+</div>
+<p>Once VSCode has opened, find ‘Extensions’ on the left hand side. Search for Python and install the top Python extension, this will give us code highlighting and other useful features.</p>
+</section>
+<section id="well-done" class="level3" data-number="1.1.5">
+<h3 data-number="1.1.5"><span class="header-section-number">1.1.5</span> Well Done!</h3>
+<p>Python, Pyxel and VSCode are now installed and you are ready to move on to the Hello World tutorial. Follow the link below.</p>
+<div class="exercisebox">
+<p><a href="">Hello World Tutorial</a></p>
+</div>
+</section>
+</section>
+<section id="linux-install" class="level2" data-number="1.2">
+<h2 data-number="1.2"><span class="header-section-number">1.2</span> Linux Install</h2>
+<section id="install-python" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1"><span class="header-section-number">1.2.1</span> Install Python</h3>
+<p>You will likely already have Python installed.</p>
+<p>Open terminal and verify you have Python installed by typing</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span>python3 --version
+</pre></div>
+</div>
+</div>
+<p>and enter. You should see <span class="verbatim">Python</span> followed by the version number, for example:</p>
+<div class="mycode">
+<div class="sourceCode"><div class="highlight"><pre><span></span>Python 3.12.0
+</pre></div>
+</div>
+</div>
+<p>If not, use the appropriate package manager for your distibution to install Python. For example this may be:</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span>apt install Python3
+</pre></div>
+</div>
+</div>
+<p>Next check PIP (the Python Package Installer) was installed with Python. Enter the command</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span>pip --version
+</pre></div>
+</div>
+</div>
+<p>You should see <span class="verbatim">pip</span> followed by the version number, for example:</p>
+<div class="mycode">
+<div class="sourceCode"><div class="highlight"><pre><span></span>pip 24.3.1
+</pre></div>
+</div>
+</div>
+<p>If not, enter the following to bootstrap the pip that was installed with Python:</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span>python3 -m ensurepip --default-pip
+</pre></div>
+</div>
+</div>
+<p>and check the success with</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span>pip --version
+</pre></div>
+</div>
+</div>
+</section>
+<section id="install-pyxel-1" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2"><span class="header-section-number">1.2.2</span> Install Pyxel</h3>
+<p>In the terminal, make a new directory. I will use a <span class="configdir">Projects</span> and a <span class="configdir">pyxel</span> directory here, you can choose what you want but a <span class="configdir">pyxel</span> directory is useful.</p>
+<div class="infobox">
+<p>Where you make the directory is up to you. A good place in Linux would be<br />
+<code>/home/**username**/</code></p>
+</div>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span>mkdir Projects
+<span class="nb">cd</span> Projects
+mkdir pyxel
+<span class="nb">cd</span> pyxel
+</pre></div>
+</div>
+</div>
+<p>Now we will create a Python <span class="inlineconsole">virtual environment</span> to run all our pyxel code in, this is good practice as it will keep everything seperate from the usual system stuff. Our virtual environment will be called <span class="inlineconsole">venv</span>.</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span>python3 -m venv venv
+</pre></div>
+</div>
+</div>
+<p>And the activate the virtual environment</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="nb">source</span> venv/bin/activate
+</pre></div>
+</div>
+</div>
+<p>You should now have <span class="inlineconsole">(venv)/home/**username**/……..</span> showing in the command line.</p>
+<p>Now enter</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;pyxel&#39;</span> &gt; requirements.txt
+</pre></div>
+</div>
+</div>
+<p>this creates a text file called <span class="configfile">requirements.txt</span> with the word <span class="verbatim">pyxel</span> in it.</p>
+<p>Next we use <span class="verbatim">pip install</span> to install the PIP pyxel package from <span class="configfile">requirements.txt</span>. Enter</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<p>You will hopefully see the install notices on screen and pyxel being installed.</p>
+<div class="warnbox">
+<p>Note, pyxel will only work inside the virtual environment <span class="verbatim">venv</span> we have created, we will have to start the virtual environment each time we come back.</p>
+</div>
+<p>Validate pyxel has installed by entering:</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span>pyxel
+</pre></div>
+</div>
+</div>
+<p>You should see a helpful list of commands like this</p>
+<div class="mycode">
+<div class="sourceCode"><div class="highlight"><pre><span></span>Pyxel 2.3.1, a retro game engine for Python
+usage:
+    pyxel run PYTHON_SCRIPT_FILE(.py)
+    pyxel watch WATCH_DIR PYTHON_SCRIPT_FILE(.py)
+    pyxel play PYXEL_APP_FILE(.pyxapp)
+    pyxel edit [PYXEL_RESOURCE_FILE(.pyxres)]
+    pyxel package APP_DIR STARTUP_SCRIPT_FILE(.py)
+    pyxel app2exe PYXEL_APP_FILE(.pyxapp)
+    pyxel app2html PYXEL_APP_FILE(.pyxapp)
+    pyxel copy_examples
+</pre></div>
+</div>
+</div>
+</section>
+<section id="install-visual-studio-code" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3"><span class="header-section-number">1.2.3</span> Install Visual Studio Code</h3>
+<p>We will use Visual Studio Code in this tutorial to simplify cross Operating System instructions.</p>
+<p>Go to</p>
+<p><a href="https://code.visualstudio.com/download">https://code.visualstudio.com/download</a></p>
+<p>and download the VSCode installer for your system.</p>
+<p>Find the download and run the installer, follow the on screen instructions.</p>
+<p>In the terminal, open VSCode in the current directory with</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span>code .
+</pre></div>
+</div>
+</div>
+<p>In VSCode, find ‘Extensions’ on the left hand side. Search for Python and install the top Python extension, this will give us code highlighting and other useful features.</p>
+</section>
+<section id="well-done-1" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4"><span class="header-section-number">1.2.4</span> Well Done!</h3>
+<p>Python, Pyxel and VSCode are now installed and you are ready to move on to the Hello World tutorial. Follow the link below.</p>
+<div class="exercisebox">
+<p><a href="https://4-3is4-me.github.io/hello_world.html">Hello World Tutorial</a></p>
+</div>
+</section>
+</section>
+<section id="uninstall" class="level2" data-number="1.3">
+<h2 data-number="1.3"><span class="header-section-number">1.3</span> Uninstall</h2>
+<p>Don’t like Pyxel? All you need to do to uninstall is delete the <span class="configdir">pyxel</span> directory where we created the <span class="verbatim">venv</span> virtual environment. To uninstall Python and VSCode use your usual system methods to uninstall programs and applications.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>&lt; Previous <a href="https://4-3is4-me.github.io/index.html">Inntroduction</a></p>
+</div><div class="column" style="width:40%;">
+
+</div><div class="column" style="width:20%;">
+<p><a href="https://4-3is4-me.github.io/hello_world.html">Hello World Tutorial</a> Next &gt;</p>
+</div>
+</div>
+</section>
+</section>
+
+            </div>
+          </main>
+
+          <footer id="footer">
+            <div class="justify-content-between align-items-center py-3 my-4 border-top ms-sm-auto">
+                <div class="row justify-content-between align-items-center">
+                  <div class="col-8 d-flex p-2">
+                    <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none"> </a>
+                    <span class="text-body-secondary">12-09-2025, Tim</span>
+                                          &nbsp; &nbsp;
+                      <a class="text-body-secondary" href="https://github.com"><i class="fa-brands fa-github"></i></a>
+                                      </div>
+
+                  <a class="nav col-2 justify-content-end list-unstyled d-flex" href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0</a>
+                </div>
+            </div>
+          </footer>
+        </div> <!-- col -->
+      </div> <!-- row -->
+
+    </div> <!-- container -->
+
+    <!-- The Modal -->
+    <div id="imgModal" class="modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCaption"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img class="modal-content" id="img01">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="template/js/dark_mode.js"></script>
+    <script src="template/js/template.js"></script>
+  </body>
+</html>
