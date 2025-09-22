@@ -277,6 +277,35 @@ figcaption{
  *
  * */
 
+/* pre {
+  position: relative;
+} */
+.copy-button {
+  display: inline-block; /* always visible */
+  position: absolute;
+  color: white;
+  /* display: none; */
+  cursor: pointer;
+  inset: 0px 0px auto auto;
+  width: 1em;
+  height: 1em;
+  border: 2px solid;
+  border-radius: 3px;
+  box-shadow: -5px 5px #999;
+}
+/* :is(:focus, :hover) > .copy-button {
+  display: inline-block;
+} */
+.copy-success {
+  box-shadow: none;
+  /* background: #999; */
+  background: var(--templatecolor);
+  transition: box-shadow 50ms ease-out, background 50ms ease-out;
+}
+.copy-fail {
+  border-style: dotted;
+}
+
 .mycode {
   border: 2px solid var(--bs-gray-700);
   border-radius: 0.5rem;
@@ -320,20 +349,30 @@ figcaption{
   margin: 1em;
 }
 
-.mycode div.sourceCode pre {
+/* .mycode div.sourceCode pre {
   user-select: all;
-}
+  -moz-user-select: all;
+  -webkit-user-select: all;
+  -ms-user-select: all;
+} */
 
 .mycode div.sourceCode .highlight pre span.linenos {
   background-color: black;
   padding-right: 0.5em;
   user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .mycode div.sourceCode .dark pre span.linenos {
   /* background-color: var(--bs-gray-700);   need to get color from the theme */
   padding-right: 0.5em;
   user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
 }
 
 
