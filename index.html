@@ -27,9 +27,7 @@
   <link href="template/css/pygments/friendly.css" rel="stylesheet">
   <link href="template/css/pygments/github-dark.css" rel="stylesheet">
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/copy-button.min.js" data-selector=".mycode p" defer></script> -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/copy-button.min.css" rel="stylesheet"> -->
-<script src="template/js/copy_button.js" data-selector=".mycode .sourceCode" defer></script>
+  <script src="template/js/copy_button.js" data-selector=".mycode > p" defer></script>
 
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -161,6 +159,7 @@
                       <li><a href="#requirements" id="toc-requirements"><span class="toc-section-number">1.2</span> Requirements</a></li>
                       <li><a href="#topics-covered-in-each-section" id="toc-topics-covered-in-each-section"><span class="toc-section-number">1.3</span> Topics covered in each section</a></li>
                       <li><a href="#what-is-what" id="toc-what-is-what"><span class="toc-section-number">1.4</span> What is what?</a></li>
+                      <li><a href="#exercise" id="toc-exercise"><span class="toc-section-number">1.5</span> Exercise</a></li>
                       </ul></li>
                       </ul>
                     </div>
@@ -187,7 +186,7 @@
 <p>Welcome to the Pyxel tutorials. Here we aim to give an introduction to creating games and other fun things with Pyxel.</p>
 <div class="infobox">
 <p>Pyxel (/ˈpɪksəl/) is a retro game engine for Python. You can find more about Pyxel on the Github repository.</p>
-<p><a href="https://github.com/kitao/pyxel/tree/main">Pyxel on Github</a></p>
+<p><strong><a href="https://github.com/kitao/pyxel/tree/main">Pyxel on Github</a></strong></p>
 </div>
 <p>The tutorials form a follow along project to create a whole game similar to a famous arcade classic!</p>
 </section>
@@ -214,9 +213,9 @@
 <h2 data-number="1.3"><span class="header-section-number">1.3</span> Topics covered in each section</h2>
 <ul>
 <li><a href="https://4-3is4-me.github.io/beginners_install.html">Installation</a> - Install of Python, Pyxel and VSCode for Windows and Linux</li>
-<li>Hello World - the first Pyxel app and testing everything is working</li>
-<li>Pyxel Edit Sprites - draw a main charachter sprite in the built in editor and make it move</li>
-<li>Pyxel Edit Tilemap - draw a background for our sprite to move around in</li>
+<li><a href="https://4-3is4-me.github.io/hello_world.html">Hello World</a> - the first Pyxel app and testing everything is working</li>
+<li><a href="https://4-3is4-me.github.io/pyxel_edit_image.html">Pyxel Edit Image</a> - draw a main charachter sprite in the built in editor</li>
+<li><a href="https://4-3is4-me.github.io/controls.html">Movement and Controls</a> - make our sprite respond to inputs and move around</li>
 <li>Pyxel Edit Baddies - draw some baddie sprites to chase our main charachter around</li>
 <li>Game mechanics - code the behaviour of our baddies and what happens when they get us</li>
 <li>Screens - Splash, start, game over, credits…</li>
@@ -227,51 +226,46 @@
 </section>
 <section id="what-is-what" class="level2" data-number="1.4">
 <h2 data-number="1.4"><span class="header-section-number">1.4</span> What is what?</h2>
+<p>This is a code box, <span class="configfile">hello_world.py</span> is the name of the file we are coding in. Click or tap on the <span class="inlineconsole">copy icon</span> in the top right to copy all the code in the box. Keep an eye out for these as they are changes or additions to our code.</p>
 <div class="mycode">
-<p><span class="title">hello_world.py</span></p>
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># this is a code box</span>
-<span class="linenos"> 2</span><span class="c1"># hello_world.py is the name of the file we are coding in</span>
-<span class="linenos"> 3</span><span class="c1"># line numbers help identify where in the code we are</span>
-<span class="linenos"> 4</span><span class="c1"># you can click the copy icon in the top right to copy all the code in the box</span>
-<span class="linenos"> 5</span><span class="c1"># keep an eye out for these as they are changes or additions to our code</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
-<span class="linenos"> 8</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">&#39;bar&#39;</span><span class="p">:</span>
-<span class="linenos"> 9</span>         <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="n">foo</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="mycode">
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos">3</span><span class="c1"># this is a small section of the code broken out</span>
-<span class="linenos">4</span><span class="c1"># we will focus on sections of the code for explanations</span>
-<span class="linenos">5</span><span class="c1"># you don&#39;t have to change anything when you see one of these</span>
+<p><span class="title"><span class="configfile">hello_world.py</span></span></p>
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># a comment</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="linenos">4</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">&#39;bar&#39;</span><span class="p">:</span>
+<span class="linenos">5</span>         <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="linenos">6</span>
-<span class="linenos">7</span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
-<span class="linenos">8</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">&#39;bar&#39;</span><span class="p">:</span>
-<span class="linenos">9</span>        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="linenos">7</span><span class="n">foo</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<p>This is a small section of the code broken out into a smaller box. We will focus on sections of the code for explanations. You don’t have to change anything when you see one of these. The line numbers help see where in the code we are.</p>
+<div class="mycode">
+<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos">3</span><span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+<span class="linenos">4</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="s1">&#39;bar&#39;</span><span class="p">:</span>
+<span class="linenos">5</span>        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>This is a command line box. Commands to put in the command line will be in these. Click or tap the copy icon top right to copy the commands.</p>
 <div class="mycode">
 <p><span class="title"></span></p>
-<div class="sourceCode"><div class="highlight"><pre><span></span>this is a <span class="nb">command</span> line box
-commands to put <span class="k">in</span> the <span class="nb">command</span> line will be <span class="k">in</span> these
-you can also click the copy icon top right to copy the commands
+<div class="sourceCode"><div class="highlight"><pre><span></span>a <span class="nb">command</span> to run
 </pre></div>
 </div>
 </div>
+<p>This is a command line (cli) output, it will show things that will be in the command line output.</p>
 <div class="mycode">
-<div class="sourceCode"><div class="highlight"><pre><span></span>this is a command line (cli) output
-it will show things that will show in the command line output
+<div class="sourceCode"><div class="highlight"><pre><span></span>here is the output from the command.
 </pre></div>
 </div>
 </div>
+<p>Here are some things that are highlighted in the in-line text.</p>
 <p><span class="inlineconsole">This is a highlighted word</span></p>
 <p><span class="commandbox">This is a command line command</span></p>
 <p><span class="configdir">This is a directory</span></p>
 <p><span class="configfile">This is a file</span></p>
+<p>And here are some breakout boxes with different content.</p>
 <div class="infobox">
 <p>This is an information box. It will give you some helpful information.</p>
 </div>
@@ -279,7 +273,7 @@ it will show things that will show in the command line output
 <p>This is a warning box. It will warn you about important points not to miss.</p>
 </div>
 <div class="errorbox">
-<p>This is an error box. It will try to help you when errors occur.</p>
+<p>This is an error box. It will try to help you when errors, or ‘bugs’ occur.</p>
 </div>
 <div class="questionbox">
 <p>This is a question box. It will ask you some important questions.</p>
@@ -287,6 +281,9 @@ it will show things that will show in the command line output
 <div class="exercisebox">
 <p>This is an exercise box. It will give you some interesting things to do.</p>
 </div>
+</section>
+<section id="exercise" class="level2" data-number="1.5">
+<h2 data-number="1.5"><span class="header-section-number">1.5</span> Exercise</h2>
 <div class="exercisebox">
 <p>Continue to the <strong><a href="https://4-3is4-me.github.io/beginners_install.html">Installation</a></strong> guide to get set up with everything you need.</p>
 </div>
