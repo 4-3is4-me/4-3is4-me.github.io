@@ -335,6 +335,8 @@ if FORMAT:match 'latex' then
       
       return blocks
     elseif el.classes[1] == "mycode" then
+      print(el.c)
+      -- needs some logic to handle missing elements TW
       title = pandoc.utils.stringify(el.c[1])
       language = pandoc.utils.stringify(el.c[2].attr.classes)
       if (el.attributes["size"]) then
@@ -344,7 +346,6 @@ if FORMAT:match 'latex' then
       end
 
       code = el.c[2].text
-      -- get mycode block's title
       return pandoc.RawBlock('latex', "\\begin{mycode}{"..title.."}{"..language.."}{\\"..size.."}\n"..code.."\n\\end{mycode}")
     end
 

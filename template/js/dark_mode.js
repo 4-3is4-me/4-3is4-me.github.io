@@ -34,7 +34,9 @@
         //change code
         for (const element of document.querySelectorAll('[class=sourceCode]')) {
             element.firstElementChild.className = ''
-            element.firstElementChild.setAttribute('class',source_theme)
+            // element.firstElementChild.setAttribute('class',source_theme)
+            // force dark for code blocks in both light and dark mode, better style
+            element.firstElementChild.setAttribute('class', 'dark')
         }
     }
     

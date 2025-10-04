@@ -280,26 +280,28 @@ figcaption{
 /* pre {
   position: relative;
 } */
+
 .copy-button {
-  display: inline-block; /* always visible */
-  position: absolute;
+  display: inline-block;
+  position: sticky;
+  left : calc(100% - 1.5em);
   color: white;
-  /* display: none; */
   cursor: pointer;
-  inset: 0px 0px auto auto;
   width: 1em;
   height: 1em;
   border: 2px solid;
   border-radius: 3px;
-  box-shadow: -5px 5px #999;
+  box-shadow: -0.3em 0.3em #999;
 }
 /* :is(:focus, :hover) > .copy-button {
   display: inline-block;
 } */
+
 .copy-success {
   box-shadow: none;
+  cursor: copy;
   /* background: #999; */
-  background: var(--templatecolor);
+  background: white;
   transition: box-shadow 50ms ease-out, background 50ms ease-out;
 }
 .copy-fail {
@@ -309,6 +311,7 @@ figcaption{
 .mycode {
   border: 2px solid var(--bs-gray-700);
   border-radius: 0.5rem;
+  /* margin-top: 0em; */
   margin-bottom: 2em;
   margin-left: 1em;
   margin-right: 1em;
@@ -321,6 +324,7 @@ figcaption{
 .mycode div.sourceCode .highlight {
   background-color: black;
   color: white;
+  margin-bottom: 1em;
 }
 
 .mycode div.sourceCode .dark {
@@ -347,14 +351,16 @@ figcaption{
 
 .mycode div.sourceCode {
   margin: 1em;
+  /* margin: 0em 1em 1em 1em; */
 }
 
-/* .mycode div.sourceCode pre {
+ /* .mycode div.sourceCode pre {
   user-select: all;
   -moz-user-select: all;
   -webkit-user-select: all;
   -ms-user-select: all;
-} */
+  margin-bottom: 1rem;
+}  */
 
 .mycode div.sourceCode .highlight pre span.linenos {
   background-color: black;
