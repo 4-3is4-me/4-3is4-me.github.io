@@ -1,267 +1,115 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="" data-bs-theme="auto">
-<head>
-  <meta charset="utf-8">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-  <meta name="author" content="Tim">
-  <meta name="keywords" content="nothing, nothingness">
-  <title>Pyxel Tutorials</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <style>
-    :root, [data-bs-theme=light] {
-      --templatecolor: #7696de;
-      --bs-heading-color: var(--templatecolor);
-    }
-
-    [data-bs-theme=dark] {
-      --bs-heading-color: var(--bs-gray-100);
-    }
-  </style>
-  <link href="template/css/dark_mode.css" rel="stylesheet">
-  <link href="template/css/template.css" rel="stylesheet">
-  <link href="template/css/pygments/friendly.css" rel="stylesheet">
-  <link href="template/css/pygments/github-dark.css" rel="stylesheet">
-
-  <script src="template/js/copy_button.js" data-selector=".mycode > p" defer></script>
-
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-
-</head>
-  <body>
-
-    <header class="navbar navbar-expand-lg bd-navbar sticky-top" id="header" >
-      <nav id="navbar" class="container-xxl flex-wrap flex-lg-nowrap text-white" aria-label="header">
-
-        <div class="bd-navbar-toggle">
-          <button class="navbar-toggler p-2 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#TOCsidebarMenu" aria-controls="toc" aria-label="Toggle docs navigation">
-            <i class="fa-solid fa-circle-chevron-right"></i>
-          </button>
-        </div>
-
-        <div>
-                      <span class="fs-4 d-none d-md-inline">Pyxel Tutorials</span>
-            <span class="fs-4 d-md-none d-xs-inline">Pyxel Tutorials</span>
-                          <span class="subtitle d-none d-lg-inline"> - Hello World</span>
-                              </div>
-
-        <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-label="Toggle navigation">
-          <i class="fa-solid fa-ellipsis text-white"></i>
-        </button>
-
-        <!-- RIGHT OFFCANVAS -->
-        <div class="offcanvas offcanvas-end flex-grow-1" tabindex="-1" id="offcanvasRight" aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true" aria-modal="true" role="dialog">
-          <div class="offcanvas-header px-4 pb-0">
-            <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">Pyxel Tutorials</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
-          </div>
-
-          <div class="offcanvas-body p-4 pt-0 p-lg-0">
-            <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
-              <ul class="navbar-nav flex-row d-flex align-items-center flex-wrap text-white">
-                <li class="d-lg-none me-2 text-white navbar-nav flex-row d-flex align-items-center flex-wrap"></li>
-                <li class="navbar-nav flex-row d-flex align-items-center flex-wrap text-white">
-                  <a id="pdf-link" href="" class=" btn flex-row d-flex align-items-center flex-wrap text-white download-icon">
-                    <i class="fa-solid fa-cloud-arrow-down"></i>
-                  </a>
-                </li>
-              </ul>
-
-
-              <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
-                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
-                <hr class="d-lg-none my-2 text-white-50">
-              </li>
-
-              <!-- Theme Selector -->
-              <ul class="navbar-nav flex-row d-flex align-items-center flex-wrap text-white" id="theme-selector">
-                <div class="d-lg-none me-2 text-white navbar-nav flex-row d-flex align-items-center flex-wrap"></div>
-                <li class="nav-item dropdown">
-                  <button class="btn btn-link nav-link text-white dropdown-toggle d-flex align-items-center theme-icon-active" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" href="fa-moon">
-                    <i class="fa-solid fa-moon"></i>
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme" style="--bs-dropdown-min-width: 8rem;" id="theme-selector-menu">
-                    <li href="fa-sun" data-bs-theme-value="light">
-                      <button type="button" class="dropdown-item d-flex align-items-center">
-                        <i class="fa-solid fa-sun opacity-50 theme-icon"></i>
-                        Light
-                      </button>
-                    </li>
-                    <li href="fa-moon" data-bs-theme-value="dark">
-                      <button type="button" class="dropdown-item d-flex align-items-center">
-                        <i class="fa-solid fa-moon opacity-50 theme-icon"></i>
-                        Dark
-                      </button>
-                    </li>
-                    <li href="fa-circle-half-stroke" data-bs-theme-value="auto">
-                      <button type="button" class="dropdown-item d-flex align-items-center">
-                        <i class="fa-solid fa-circle-half-stroke opacity-50 theme-icon"></i>
-                        Auto
-                      </button>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-
-              <li class="d-lg-none nav-item py-2 py-lg-1 col-12 col-lg-auto">
-                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
-                <hr class="d-lg-none my-2 text-white-50">
-              </li>
-
-              <!-- Author and links -->
-              <ul class="d-lg-none navbar-nav flex-row d-flex align-items-center flex-wrap text-white">
-                <li class="d-lg-none me-2 text-white navbar-nav flex-row d-flex align-items-center flex-wrap">12-09-2025, Tim</li>
-                <ul class="nav justify-content-end list-unstyled d-flex">
-                                      <li class="ms-3"><a class="text-white" href="https://github.com"><i class="fa-brands fa-github"></i></a></li>
-                                  </ul>
-              </ul>
-
-              <li class="d-lg-none nav-item py-2 py-lg-1 col-12 col-lg-auto">
-                <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
-                <hr class="d-lg-none my-2 text-white-50">
-              </li>
-
-              <ul class="navbar-nav flex-row d-flex align-items-center flex-wrap text-white">
-                <li class="d-lg-none me-2 text-white navbar-nav flex-row d-flex align-items-center flex-wrap">
-                  <a  href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0</a>
-                </li>
-              </ul>
-
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <div class="container-fluid">
-      <div class="row">
-                  <div class="col-lg-3">
-            <aside class="sticky-lg-top offcanvas-lg offcanvas-start offcanvas-body" tabindex="-1" id="TOCsidebarMenu" aria-labelledby="bdsidebaroffcanvaslabel">
-              <div class="offcanvas-lg offcanvas-start show" tabindex="-1" id="bdsidebar" aria-labelledby="bdsidebaroffcanvaslabel" aria-modal="true" role="dialog">
-
-                <div class="offcanvas-header border-bottom d-lg-none">
-                  <h5 class="offcanvas-title" id="bdsidebaroffcanvaslabel"></h5>
-                  <button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" aria-label="close" data-bs-target="#TOCsidebarMenu"></button>
-                </div>
-                <div class="offcanvas-body">
-                  <nav class="" id="bd-docs-nav" aria-label="docs navigation">
-                    <div id="toc" class="pb-5">
-                      <ul>
-                      <li><a href="#hello-world" id="toc-hello-world"><span class="toc-section-number">1</span> Hello World</a>
-                      <ul>
-                      <li><a href="#code" id="toc-code"><span class="toc-section-number">1.1</span> Code</a></li>
-                      <li><a href="#run" id="toc-run"><span class="toc-section-number">1.2</span> Run</a></li>
-                      <li><a href="#whats-happening" id="toc-whats-happening"><span class="toc-section-number">1.3</span> What’s happening?</a></li>
-                      <li><a href="#bonus" id="toc-bonus"><span class="toc-section-number">1.4</span> Bonus</a></li>
-                      <li><a href="#key-points" id="toc-key-points"><span class="toc-section-number">1.5</span> Key points</a></li>
-                      <li><a href="#exercise" id="toc-exercise"><span class="toc-section-number">1.6</span> Exercise</a></li>
-                      </ul></li>
-                      </ul>
-                    </div>
-                  </nav>
-                </div>
-              </div>
-            </aside>
-          </div>
-                <div class="col-12 col-lg-8">
-          <main class="bd-main order-1" id="main"  data-bs-spy="scroll" data-bs-target="#toc">
-            <div id="book">
-
-                              <div id="cover" class="fw-bold text-center">
-                  <span id="title" >Pyxel Tutorials</span>
-                  <div id="cover_img" class="py-5">
-                    <img src="assets/hello_world.gif">
-                  </div>
-                </div>
-              
-<section id="hello-world" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Hello World</h1>
-<section id="code" class="level2" data-number="1.1">
-<h2 data-number="1.1"><span class="header-section-number">1.1</span> Code</h2>
-<p>This guide assumes you have some basic knowledge of coding in Python. If something doesn’t work, check your code carefully and compare with the examples.</p>
-<p>Once you have followed the <strong><a href="https://4-3is4-me.github.io/beginners_install.html">Installation</a></strong> guide, verify everything is working with this example that displays text on screen.</p>
+<p>from: markdown-markdown_in_html_blocks+table_captions toc: true
+toc-depth: 5 number-sections: true wrap: preserve standalone: true
+embed-resources: false top-level-division: chapter section-divs: true
+pdf-engine: lualatex pdf-engine-opt: - ‘-shell-escape’ -
+‘-output-directory=.’ template: template/yuki.html filters: -
+template/filter.lua metadata-files: -
+pages/hello_world/hello_world.metadata.yaml resource-path: - .</p>
+<h1 id="hello-world">Hello World</h1>
+<h2 id="code">Code</h2>
+<p>This guide assumes you have some basic knowledge of coding in Python.
+If something doesn’t work, check your code carefully and compare with
+the examples.</p>
+<p>Once you have followed the <strong><a
+href="https://4-3is4-me.github.io/beginners_install.html">Installation</a></strong>
+guide, verify everything is working with this example that displays text
+on screen.</p>
 <div class="warnbox">
-<p><strong>Make sure you’re in the correct pyxel directory and have a virtual environment enabled.</strong></p>
+<p><strong>Make sure you’re in the correct pyxel directory and have a
+virtual environment enabled.</strong></p>
 <p><br/></p>
 <ul>
-<li>Windows - Open Powershell and enter the following to move into the <span class="configdir">pyxel</span> directory and start the<br/>virtual environment.</li>
+<li>Windows - Open Powershell and enter the following to move into the
+<span class="configdir">pyxel</span> directory and start the<br/>virtual
+environment.</li>
 </ul>
 <div class="mycode">
 <p><span class="title"></span></p>
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="nb">cd</span> Projects/pyxel
-venv/Scripts/activate
-</pre></div>
-</div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Projects/pyxel</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">venv/Scripts/activate</span></span></code></pre></div>
 </div>
 <ul>
-<li>Linux - Open a terminal and enter the following to move into the <span class="configdir">pyxel</span> directory and start the<br/>virtual environment.</li>
+<li>Linux - Open a terminal and enter the following to move into the
+<span class="configdir">pyxel</span> directory and start the<br/>virtual
+environment.</li>
 </ul>
 <div class="mycode">
 <p><span class="title"></span></p>
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="nb">cd</span> Projects/pyxel
-<span class="nb">source</span> venv/bin/activate
-</pre></div>
-</div>
-</div>
-</div>
-<div class="infobox">
-<p>From here on the commands to run in the terminal, Powershell or Linux are the same.</p>
-</div>
-<p>From our <span class="configdir">pyxel</span> directory, make a new <span class="configdir">hello_world</span> directory for the project and move into that directory.</p>
-<div class="mycode">
-<p><span class="title"></span></p>
-<div class="sourceCode"><div class="highlight"><pre><span></span>mkdir hello_world
-<span class="nb">cd</span> hello_world
-</pre></div>
-</div>
-</div>
-<p>Start VSCode with <span class="commandbox">code .</span> if it’s not already running. If it is already running, use the file browser to the left to open the <span class="configdir">hello_world</span> directory.</p>
-<p>Create a new file by hovering over the file explorer and clicking the new file icon <span class="configfile">+</span> or use the keyboard shortcut <span class="verbatim">ctrl+n</span>. Name the file <span class="configfile">hello_world.py</span> and add the following code.</p>
-<div class="mycode">
-<p><span class="title"><span class="configfile">hello_world.py</span></span></p>
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Hello World</span>
-<span class="linenos"> 2</span>
-<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">pyxel</span>
-<span class="linenos"> 4</span>
-<span class="linenos"> 5</span><span class="n">pyxel</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
-<span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
-<span class="linenos"> 8</span>    <span class="k">if</span> <span class="n">pyxel</span><span class="o">.</span><span class="n">btnp</span><span class="p">(</span><span class="n">pyxel</span><span class="o">.</span><span class="n">KEY_Q</span><span class="p">):</span>
-<span class="linenos"> 9</span>        <span class="n">pyxel</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-<span class="linenos">10</span>
-<span class="linenos">11</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
-<span class="linenos">12</span>    <span class="n">pyxel</span><span class="o">.</span><span class="n">cls</span><span class="p">(</span><span class="n">pyxel</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">)</span>
-<span class="linenos">13</span>    <span class="n">pyxel</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">pyxel</span><span class="o">.</span><span class="n">COLOR_WHITE</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span><span class="n">pyxel</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">update</span><span class="p">,</span> <span class="n">draw</span><span class="p">)</span>
-</pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Projects/pyxel</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> venv/bin/activate</span></code></pre></div>
 </div>
 </div>
 <div class="infobox">
-<p>Top Tip, if the <span class="verbatim">import pyxel</span> has a wiggly line underneath <span class="verbatim">~~~~~</span>, VSCode is using the wrong Python Interpreter. Press <span class="verbatim">ctrl+shift+p</span>, and select the ‘Choose Python Interpreter’ option from the top. Then click on the option which has the virtual environment named in it, for our example <span class="verbatim">venv:venv</span>.</p>
+<p>From here on the commands to run in the terminal, Powershell or Linux
+are the same.</p>
 </div>
-<p>Save the file <span class="configfile">hello_world.py</span> using the File menu or keyboard shortcut <span class="verbatim">ctrl+s</span>.</p>
-</section>
-<section id="run" class="level2" data-number="1.2">
-<h2 data-number="1.2"><span class="header-section-number">1.2</span> Run</h2>
-<p>To run the app, make sure everything is saved, then either click the <span class="inlineconsole">play icon</span> top right in VSCode or enter the <span class="commandbox">pyxel run</span> command from the terminal:</p>
+<p>From our <span class="configdir">pyxel</span> directory, make a new
+<span class="configdir">hello_world</span> directory for the project and
+move into that directory.</p>
 <div class="mycode">
 <p><span class="title"></span></p>
-<div class="sourceCode"><div class="highlight"><pre><span></span>pyxel run hello_world
-</pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> hello_world</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> hello_world</span></code></pre></div>
 </div>
+<p>Start VSCode with <span class="commandbox">code .</span> if it’s not
+already running. If it is already running, use the file browser to the
+left to open the <span class="configdir">hello_world</span>
+directory.</p>
+<p>Create a new file by hovering over the file explorer and clicking the
+new file icon <span class="configfile">+</span> or use the keyboard
+shortcut <span class="verbatim">ctrl+n</span>. Name the file <span
+class="configfile">hello_world.py</span> and add the following code.</p>
+<div class="mycode">
+<p><span class="title"><span
+class="configfile">hello_world.py</span></span></p>
+<pre class="pythonlinenumbersstart=1"><code># Hello World
+
+import pyxel
+
+pyxel.init(width=160, height=120)
+
+def update():
+    if pyxel.btnp(pyxel.KEY_Q):
+        pyxel.quit()
+
+def draw():
+    pyxel.cls(pyxel.COLOR_BLACK)
+    pyxel.text(x=10, y=10, s=&quot;Hello World!&quot;, col=pyxel.COLOR_WHITE, font=None)
+
+pyxel.run(update, draw)</code></pre>
+</div>
+<div class="infobox">
+<p>Top Tip, if the <span class="verbatim">import pyxel</span> has a
+wiggly line underneath <span class="verbatim">~~~~~</span>, VSCode is
+using the wrong Python Interpreter. Press <span
+class="verbatim">ctrl+shift+p</span>, and select the ‘Choose Python
+Interpreter’ option from the top. Then click on the option which has the
+virtual environment named in it, for our example <span
+class="verbatim">venv:venv</span>.</p>
+</div>
+<p>Save the file <span class="configfile">hello_world.py</span> using
+the File menu or keyboard shortcut <span
+class="verbatim">ctrl+s</span>.</p>
+<h2 id="run">Run</h2>
+<p>To run the app, make sure everything is saved, then either click the
+<span class="inlineconsole">play icon</span> top right in VSCode or
+enter the <span class="commandbox">pyxel run</span> command from the
+terminal:</p>
+<div class="mycode">
+<p><span class="title"></span></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pyxel</span> run hello_world</span></code></pre></div>
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <figure>
-<img src="assets/hello_world.png" style="width:100.0%" alt="Hello World displayed in white on a black background" />
-<figcaption aria-hidden="true">Hello World displayed in white on a black background</figcaption>
+<img src="assets/hello_world.png" style="width:100.0%"
+alt="Hello World displayed in white on a black background" />
+<figcaption aria-hidden="true">Hello World displayed in white on a black
+background</figcaption>
 </figure>
 </div><div class="column" style="width:50%;">
 <p>Congratulations, if everything worked you should see this.</p>
@@ -269,49 +117,59 @@ venv/Scripts/activate
 </div>
 </div>
 <div class="errorbox">
-<p>If the window doesn’t open to show Hello World, there may be an error. These will display in the terminal. <strong>Read them carefully and correct them if you can.</strong></p>
+<p>If the window doesn’t open to show Hello World, there may be an
+error. These will display in the terminal. <strong>Read them carefully
+and correct them if you can.</strong></p>
 </div>
-</section>
-<section id="whats-happening" class="level2" data-number="1.3">
-<h2 data-number="1.3"><span class="header-section-number">1.3</span> What’s happening?</h2>
-<p>First, we <span class="verbatim">import</span> the Pyxel module. Then we use the <span class="verbatim">init()</span> method to set up our Pyxel app:</p>
+<h2 id="whats-happening">What’s happening?</h2>
+<p>First, we <span class="verbatim">import</span> the Pyxel module. Then
+we use the <span class="verbatim">init()</span> method to set up our
+Pyxel app:</p>
 <div class="mycode">
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos">3</span><span class="kn">import</span> <span class="nn">pyxel</span>
-<span class="linenos">4</span>
-<span class="linenos">5</span><span class="n">pyxel</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
-</pre></div>
+<pre class="pythonlinenumbersstart=3"><code>import pyxel
+
+pyxel.init(width=160, height=120)</code></pre>
 </div>
-</div>
-<p>The <span class="verbatim">init()</span> method runs just once at the start. Here we are setting the Pyxel window to be <span class="verbatim">160</span> pixels wide and <span class="verbatim">120</span> pixels high.</p>
+<p>The <span class="verbatim">init()</span> method runs just once at the
+start. Here we are setting the Pyxel window to be <span
+class="verbatim">160</span> pixels wide and <span
+class="verbatim">120</span> pixels high.</p>
 <p>Next is the <span class="verbatim">update()</span> function:</p>
 <div class="mycode">
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos">7</span><span class="k">def</span> <span class="nf">update</span><span class="p">():</span>
-<span class="linenos">8</span>    <span class="k">if</span> <span class="n">pyxel</span><span class="o">.</span><span class="n">btnp</span><span class="p">(</span><span class="n">pyxel</span><span class="o">.</span><span class="n">KEY_Q</span><span class="p">):</span>
-<span class="linenos">9</span>        <span class="n">pyxel</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</pre></div>
+<pre class="pythonlinenumbersstart=7"><code>def update():
+    if pyxel.btnp(pyxel.KEY_Q):
+        pyxel.quit()</code></pre>
 </div>
-</div>
-<p>The <span class="verbatim">update()</span> function runs before every frame. The default frame rate is 60 frames per second, so here <span class="verbatim">update()</span> runs 60 times a second. It handles any inputs or changes. The <span class="verbatim">if</span> statement that checks if the <span class="inlineconsole">Q</span> key is pressed and quits if it is.</p>
+<p>The <span class="verbatim">update()</span> function runs before every
+frame. The default frame rate is 60 frames per second, so here <span
+class="verbatim">update()</span> runs 60 times a second. It handles any
+inputs or changes. The <span class="verbatim">if</span> statement that
+checks if the <span class="inlineconsole">Q</span> key is pressed and
+quits if it is.</p>
 <p>Then the <span class="verbatim">draw()</span> function:</p>
 <div class="mycode">
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos">11</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
-<span class="linenos">12</span>    <span class="n">pyxel</span><span class="o">.</span><span class="n">cls</span><span class="p">(</span><span class="n">pyxel</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">)</span>
-<span class="linenos">13</span>    <span class="n">pyxel</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">pyxel</span><span class="o">.</span><span class="n">COLOR_WHITE</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</pre></div>
+<pre class="pythonlinenumbersstart=11"><code>def draw():
+    pyxel.cls(pyxel.COLOR_BLACK)
+    pyxel.text(x=10, y=10, s=&quot;Hello World!&quot;, col=pyxel.COLOR_WHITE, font=None)</code></pre>
 </div>
-</div>
-<p><span class="verbatim">draw()</span> runs almost every frame and will draw our stuff in the window. <span class="verbatim">pyxel.cls(pyxel.COLOR_BLACK</span> clears everything and fills with black, making a fresh canvas to draw in. Then <span class="verbatim">pyxel.text(…)</span> is drawing our “Hello World” text.</p>
+<p><span class="verbatim">draw()</span> runs almost every frame and will
+draw our stuff in the window. <span
+class="verbatim">pyxel.cls(pyxel.COLOR_BLACK)</span> clears everything
+and fills with black, making a fresh canvas to draw in. Then <span
+class="verbatim">pyxel.text(…)</span> is drawing our “Hello World”
+text.</p>
 <p>Last, the run method:</p>
 <div class="mycode">
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos">15</span><span class="n">pyxel</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">update</span><span class="p">,</span> <span class="n">draw</span><span class="p">)</span>
-</pre></div>
+<pre class="pythonlinenumbersstart=15"><code>pyxel.run(update, draw)</code></pre>
 </div>
-</div>
-<p>This starts our app and calls the <span class="verbatim">update()</span> and <span class="verbatim">draw()</span> functions to run forever.</p>
+<p>This starts our app and calls the <span
+class="verbatim">update()</span> and <span
+class="verbatim">draw()</span> functions to run forever.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <figure>
-<img src="assets/diag_0.png" style="width:100.0%" alt="A flow diagram" />
+<img src="assets/diag_0.png" style="width:100.0%"
+alt="A flow diagram" />
 <figcaption aria-hidden="true">A flow diagram</figcaption>
 </figure>
 </div><div class="column" style="width:50%;">
@@ -319,103 +177,67 @@ venv/Scripts/activate
 </div>
 </div>
 <div class="infobox">
-<p>Note the documentation states that <span class="verbatim">draw()</span> may not run every frame, but for our purposes it’s easier to assume that it does.</p>
+<p>Note the documentation states that <span
+class="verbatim">draw()</span> may not run every frame, but for our
+purposes it’s easier to assume that it does.</p>
 </div>
-</section>
-<section id="bonus" class="level2" data-number="1.4">
-<h2 data-number="1.4"><span class="header-section-number">1.4</span> Bonus</h2>
-<p>We can brighten things up a bit by changing the colour of the text every frame.</p>
-<p>Change the <span class="verbatim">draw()</span> function to the following, then save and run again.</p>
+<h2 id="bonus">Bonus</h2>
+<p>We can brighten things up a bit by changing the colour of the text
+every frame.</p>
+<p>Change the <span class="verbatim">draw()</span> function to the
+following, then save and run again.</p>
 <div class="mycode">
 <p><span class="title">hello_world.py</span></p>
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos">11</span><span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
-<span class="linenos">12</span>    <span class="n">pyxel</span><span class="o">.</span><span class="n">cls</span><span class="p">(</span><span class="n">pyxel</span><span class="o">.</span><span class="n">COLOR_BLACK</span><span class="p">)</span>
-<span class="linenos">13</span>    <span class="n">text_colour</span> <span class="o">=</span> <span class="n">pyxel</span><span class="o">.</span><span class="n">frame_count</span> <span class="o">%</span> <span class="mi">16</span>
-<span class="linenos">14</span>    <span class="n">pyxel</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">text_colour</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</pre></div>
+<pre class="pythonlinenumbersstart=11"><code>def draw():
+    pyxel.cls(pyxel.COLOR_BLACK)
+    text_colour = pyxel.frame_count % 16
+    pyxel.text(x=10, y=10, s=&quot;Hello World!&quot;, col=text_colour, font=None)</code></pre>
 </div>
-</div>
-<p>As the default frame rate is 60 frames per second, this demonstrates our code clearing the screen and redrawing the text in a different colour each time. To slow this down, add <span class="verbatim">fps=1</span> to our <span class="verbatim">init()</span> function, setting the frame rate to 1 frame per second. It looks blank when the text colour is black on the black background.</p>
+<p>As the default frame rate is 60 frames per second, this demonstrates
+our code clearing the screen and redrawing the text in a different
+colour each time. To slow this down, add <span
+class="verbatim">fps=1</span> to our <span
+class="verbatim">init()</span> function, setting the frame rate to 1
+frame per second. It looks blank when the text colour is black on the
+black background.</p>
 <div class="infobox">
-<p>Frame rate is how many times the screen is drawn in a second. A lower frame rate will actually make things move slower!</p>
+<p>Frame rate is how many times the screen is drawn in a second. A lower
+frame rate will actually make things move slower!</p>
 </div>
 <div class="mycode">
 <p><span class="title">hello_world.py</span></p>
-<div class="sourceCode"><div class="highlight"><pre><span></span><span class="linenos">5</span><span class="n">pyxel</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
+<pre class="pythonlinenumbersstart=5"><code>pyxel.init(width=160, height=120, fps=1)</code></pre>
 </div>
-</div>
-</section>
-<section id="key-points" class="level2" data-number="1.5">
-<h2 data-number="1.5"><span class="header-section-number">1.5</span> Key points</h2>
+<h2 id="key-points">Key points</h2>
 <ul>
-<li><span class="verbatim">init()</span> runs once at the start to set everything up</li>
-<li><span class="verbatim">update()</span> runs before every frame to handle inputs and update changes</li>
-<li><span class="verbatim">draw()</span> runs almost every frame to display any changes</li>
+<li><span class="verbatim">init()</span> runs once at the start to set
+everything up</li>
+<li><span class="verbatim">update()</span> runs before every frame to
+handle inputs and update changes</li>
+<li><span class="verbatim">draw()</span> runs almost every frame to
+display any changes</li>
 </ul>
 <div class="infobox">
-<p><span class="verbatim">init()</span>. <span class="verbatim">update()</span> and <span class="verbatim">draw()</span> are the key elements of a Pyxel app. They will be included in everything we do from here onwards.</p>
+<p><span class="verbatim">init()</span>. <span
+class="verbatim">update()</span> and <span
+class="verbatim">draw()</span> are the key elements of a Pyxel app. They
+will be included in everything we do from here onwards.</p>
 </div>
-</section>
-<section id="exercise" class="level2" data-number="1.6">
-<h2 data-number="1.6"><span class="header-section-number">1.6</span> Exercise</h2>
+<h2 id="exercise">Exercise</h2>
 <div class="exercisebox">
-<p>Can you change the code to show the Hello World! text in a different part of the window? Or change the text to something else? Have a go and see what happens!</p>
+<p>Can you change the code to show the Hello World! text in a different
+part of the window? Or change the text to something else? Have a go and
+see what happens!</p>
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>&lt; Previous</br>
-<a href="https://4-3is4-me.github.io/beginners_install.html">Installation</a></p>
+<p>&lt; Previous</br> <a
+href="https://4-3is4-me.github.io/beginners_install.html">Installation</a></p>
 </div><div class="column" style="width:50%;">
 <div style="text-align: right">
-<p>Next &gt; </br>
-<a href="https://4-3is4-me.github.io/pyxel_edit_image.html">Pyxel Editor Image</a></p>
+<p>Next &gt; </br> <a
+href="https://4-3is4-me.github.io/pyxel_edit_image.html">Pyxel Editor
+Image</a></p>
 </div>
 </div>
 </div>
-</section>
-</section>
-
-            </div>
-          </main>
-
-          <footer id="footer">
-            <div class="justify-content-between align-items-center py-3 my-4 border-top ms-sm-auto">
-                <div class="row justify-content-between align-items-center">
-                  <div class="col-8 d-flex p-2">
-                    <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none"> </a>
-                    <span class="text-body-secondary">12-09-2025 Tim</span>
-                                          &nbsp; &nbsp;
-                      <a class="text-body-secondary" href="https://github.com"><i class="fa-brands fa-github"></i></a>
-                                      </div>
-
-                  <a class="nav col-4 justify-content-end list-unstyled d-flex" href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0</a>
-                </div>
-            </div>
-          </footer>
-        </div> <!-- col -->
-      </div> <!-- row -->
-
-    </div> <!-- container -->
-
-    <!-- The Modal -->
-    <div id="imgModal" class="modal" tabindex="-1">
-      <div class="modal-dialog modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalCaption"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <img class="modal-content" id="img01">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="template/js/dark_mode.js"></script>
-    <script src="template/js/template.js"></script>
-  </body>
-</html>
